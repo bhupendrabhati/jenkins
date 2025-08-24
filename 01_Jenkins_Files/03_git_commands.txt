@@ -1,0 +1,38 @@
+GIT RESTORE
+$ git restore --staged 01_Jenkins_Files/01_jenkins_setup_commands_ubuntu.txt
+git restore --staged 01_Jenkins_Files/02_pipeline_script_ci.txt
+git restore 01_Jenkins_Files/
+.......................................................................................................................................................................
+GIT FETCH
+git fetch <remote-name>
+git fetch origin
+git fetch <remote-name> <branch-name>
+git fetch origin develop
+git fetch --tags
+git fetch origin --tags
+git fetch --prune
+git fetch origin --prune
+git fetch --all
+git fetch --dry-run
+git fetch origin --dry-run
+
+After Fetching:
+After running git fetch, the fetched changes are stored in remote-tracking branches (e.g., origin/main, origin/feature-branch). You can then inspect these changes using commands like git log origin/main or git diff main origin/main. To incorporate these changes into your local branches, you would typically use git merge or git rebase.
+.......................................................................................................................................................................
+
+git log origin/<remote_branch_name>
+git diff <local_branch_name> origin/<remote_branch_name>
+
+If you want to incorporate the fetched changes into the local branch you are currently on, you can use:
+
+git merge origin/<remote_branch_name>:
+This will merge the fetched changes into your current branch, creating a merge commit if necessary.
+
+git rebase origin/<remote_branch_name>:
+This will reapply your local commits on top of the fetched changes, creating a cleaner history if you haven't pushed your local commits yet.
+
+git pull origin <remote_branch_name>:
+This command is a shortcut that performs both a git fetch and a git merge in one step. If you've already fetched, using git pull again will effectively perform the merge.
+
+If you want to work on the fetched changes in a new, separate local branch, you can create a new branch that tracks the remote branch:
+git checkout -b <new_local_branch_name> origin/<remote_branch_name>
