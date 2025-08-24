@@ -1,5 +1,0 @@
-git branch
-git branch -r
-git branch -a
-git branch -a
-git branch --show-current
